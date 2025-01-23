@@ -1,0 +1,15 @@
+// 로컬 스토리지에서 "mbti_result" 값을 가져옵니다.
+const result = localStorage.getItem("mbti_result");
+
+// 결과 텍스트를 id="result" 요소에 설정
+const resultText = result ? result + "입니다!" : "아직 테스트를 진행하지 않았습니다!";
+document.getElementById("result").textContent = resultText;
+
+// "다시하기" 버튼 텍스트를 변경
+const restartButton = document.getElementById("restart-button");
+if (result) {
+    restartButton.textContent = "다시하기";  // 결과가 있으면 "다시하기"
+} else {
+    restartButton.textContent = "테스트 하러 가기";  // 결과가 없으면 "테스트 하러 가기"
+    restartButton.href = "index.html";  // 링크를 index.html로 변경하여 테스트 페이지로 이동
+}
